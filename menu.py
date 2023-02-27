@@ -45,12 +45,14 @@ def input_contact_menu_choice():
         return input_contact_menu_choice()
 
 def submenu():
-    input_num = int(input('\nПродолжить работу с заметками? (1 - да, 2 - нет): '))
-    if input_num == 1:
-        return input_contact_menu_choice()
-    elif input_num == 2:
-        return exit() 
-    else:
+    try:
+        input_num = int(
+            input('\nПродолжить работу с заметками? (1 - да, 2 - нет): '))
+        if int(input_num) == 1:
+            return input_contact_menu_choice()
+        elif input_num == 2:
+            return exit()
+    except ValueError:
         print('Ошибка ввода')
         return submenu()
 
