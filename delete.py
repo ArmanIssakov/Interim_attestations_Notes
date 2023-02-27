@@ -17,12 +17,14 @@ def delete():  # удаление заметки
                     note.write(line)
                 else:
                     flag = True
-                    input_del = int(input('Вы действительно хотите удалить заметку №{}\n{}\n(1 - да, 2 - нет): '.format(del_key, line)))
-                    if input_del == 1:
-                        print('\nЗаметка №{} успешно удалена'.format(del_key))
-                    elif input_del == 2:
-                        note.write(line)
-                    else:
+                    try:
+                        input_del = int(input(
+                            'Вы действительно хотите удалить заметку №{}\n{}\n(1 - да, 2 - нет): '.format(del_key, line)))
+                        if input_del == 1:
+                            print('\nЗаметка №{} успешно удалена'.format(del_key))
+                        elif input_del == 2:
+                            note.write(line)
+                    except ValueError:
                         print('Ошибка ввода')
                         return
         if flag == False:
