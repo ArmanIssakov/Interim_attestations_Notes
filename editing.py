@@ -14,14 +14,10 @@ def editing():
             edit_key = data_editing()
             flag = False
         try:
-            what_edit =int(input('Что хотите изменить? (1 - название, 2 - содержание)'))
-            if what_edit != 1 or what_edit != 2:
-                print('Ошибка ввода')
-                return   
+            what_edit =int(input('Что хотите изменить? (1 - название, 2 - содержание)')) 
         except ValueError:
             print('Ошибка ввода')
             return 
-            
 
         with open('Note.csv', 'r', encoding='utf-8') as note:
             old_data = note.readlines()
@@ -47,6 +43,9 @@ def editing():
                         note_body = super_input("Новое название: ", inp=line_array[2])
                         note.write('{};{};{};{}\n'.format(edit_key,line_array[1],note_body,date_note))
                         print('\nСодержание заметки №{} успешно изменено'.format(edit_key))
+                    else:
+                        print('Ошибка ввода')
+                        return
                     
         if flag == False:
             print('\nЗаметки под №{} несуществует'.format(edit_key))  
