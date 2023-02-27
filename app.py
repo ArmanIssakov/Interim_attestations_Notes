@@ -1,0 +1,3 @@
+from menu import input_contact_menu_choice
+
+input_contact_menu_choice()
